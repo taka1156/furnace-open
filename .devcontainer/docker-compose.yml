@@ -1,0 +1,10 @@
+services:
+  tf-open:
+    build:
+      context: .
+      args:
+        TERRAFORM_VERSION: "1.13.3"
+        CF_TERRAFORMING_VERSION: "0.29.0"
+    tty: true
+    volumes:
+      - ..:/workspace

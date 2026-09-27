@@ -1,0 +1,41 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vscode/main/extensions/configuration-editing/schemas/devContainer.vscode.schema.json",
+    "name": "furnace-open",
+    "dockerComposeFile": "./docker-compose.yml",
+    "service": "tf-open",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "chmod +x ./dump.sh ./dump-workers.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "MS-CEINTL.vscode-language-pack-ja",
+                "streetsidesoftware.code-spell-checker",
+                "username.errorlens",
+                "HashiCorp.terraform"
+            ]
+        },
+        "settings": {
+            "terminal.integrated.defaultProfile.linux": "bash",
+            "github.copilot.enable": {
+                "*": false,
+                "markdown": true,
+                "terraform": false
+            },
+            "github.copilot.advanced": {
+                "excludeFiles": [
+                    "**/.env.*",
+                    "**/*.pem"
+                ]
+            },
+            "[terraform]": {
+                "editor.defaultFormatter": "HashiCorp.terraform",
+                "editor.formatOnSave": true
+            },
+            "[terraform-vars]": {
+                "editor.defaultFormatter": "HashiCorp.terraform",
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    "remoteUser": "root"
+}
